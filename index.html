@@ -16,6 +16,28 @@
 </head>
 
 <body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Fancy Slider</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <button class="btn btn-primary" onclick="backToGallery()">Home</button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://stocksnap.io/">Blog</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
   <div class="container">
     <h4 class="mt-2 text-center">Search Image for create slider</h4>
     <div class="form-inline mt-3 d-flex justify-content-center">
@@ -33,27 +55,29 @@
         <button id="create-slider" class="btn btn-primary px-5">Create slider</button>
       </div>
       <div id="errorMassageShow">
-
+  
       </div>
+      <!-- spinner -->
       <div id="spinner" class="d-none text-center">
         <div class="spinner-border text-info" role="status">
           <span class="visually-hidden"></span>
         </div>
       </div>
-      
-      <div class="row gallery">
-
+  
+      <div id="gallerDiv" class="row gallery">
+  
       </div>
     </section>
     <!-- slider -->
     <div class="main">
       <section class="mt-5" id="sliders">
-
+  
       </section>
       <div class="dots d-flex mt-2 w-100 justify-content-center align-items-center bg-light">
         <span class="dot" onclick="changeItem(-1)"></span>
         <span class="dot" onclick="changeItem(1)"></span>
       </div>
+      <!-- back to home button -->
       <div class="d-flex justify-content-center m-4">
         <button class="btn btn-primary" onclick="backToGallery()">Back to Gallery</button>
       </div>
@@ -61,6 +85,6 @@
   </div>
   <!-- Optional JavaScript -->
   <script src="./app.js"></script>
-</body>
-
-</html>
+  </body>
+  
+  </html>

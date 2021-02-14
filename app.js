@@ -2,9 +2,11 @@ const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
 const searchBtn = document.getElementById('search-btn');
+const searchField = document.getElementById('search');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 const errorMassage = document.getElementById('errorMassageShow');
+
 // selected image 
 let sliders = [];
 
@@ -122,13 +124,22 @@ const changeSlide = (index) => {
 }
 
 searchBtn.addEventListener('click', function () {
-  document.querySelector('.main').style.display = 'none';
-  clearInterval(timer);
-  const search = document.getElementById('search');
-  getImages(search.value)
-  sliders.length = 0;
+  searchButtonHandle()
 })
 
+  // create alert if user write nothing in search field and click btn 
+  const searchButtonHandle = ()=> {
+    if (searchField.value != '') {
+      document.querySelector('.main').style.display = 'none';
+      clearInterval(timer);
+      getImages(searchField.value)
+      sliders.length = 0;
+      searchField.value = '';
+    } else {
+      alert('Please search something')
+    }
+  }
+// user get search result by pressing 'Enter' key.
 var searchKey = document.getElementById("search-btn");
 document.getElementById("search").addEventListener("keypress", function(event) {
     if (event.key === 'Enter'){
@@ -142,13 +153,14 @@ sliderBtn.addEventListener('click', function () {
 })
 
 
-
-// spinner
+// spinner handle
 const handleSpinner = () => {
   const spinner = document.getElementById('spinner');
   spinner.classList.toggle("d-none");
 }
 
+
+// go back to gallery button management 
 const backToGallery = ()=> {
   document.querySelector('.main').style.display = 'none';
   imagesArea.style.display = 'block';
